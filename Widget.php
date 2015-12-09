@@ -52,7 +52,8 @@ class Widget extends YiiWidget
     public function init()
     {
         parent::init();
-        $class = implode('.', explode('\\', static::className()));
+        $class = explode('\\', static::className());
+        $this->path = implode('.', $class));
         $this->shortPath = strtolower(end($class));
         $this->getParams = Yii::$app->request->get($this->id, []);
     }
