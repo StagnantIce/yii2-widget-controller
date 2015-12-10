@@ -87,10 +87,9 @@ class Widget extends YiiWidget
             $action = 'action'.ucfirst($this->getParams[$this->actionName]);
             unset($this->getParams[$this->actionName]);
             $f = new \ReflectionMethod($this, $action);
-            $fParams = array_slice($f->getParameters(), count($this->getParams));
             $params = [];
-            foreach ($fParams as $param) {
-                if (isset($this->getParams[$param->name])) {
+            foreach ($f->getParameters() as $param) {
+                if (array_key_exists($param->name, $this->getParams)) {
                     $params[] = $this->getParams[$param->name];
                     unset($this->getParams[$param->name]);
                 }
