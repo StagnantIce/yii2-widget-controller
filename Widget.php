@@ -69,8 +69,7 @@ class Widget extends YiiWidget
             $urlParams[$this->getId()] = $params;
             $urlParams[$this->getId()][$this->actionName] = $url;
         }
-        $urlParams[0] = '';
-        return Url::to($urlParams);
+        return Url::current($urlParams);
     }
 
     public function redirect($params = []) {
