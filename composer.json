@@ -1,0 +1,17 @@
+{
+    "name": "StagnantIce/yii2-widget-controller",
+    "type": "library",
+    "description": "Yii2 Widget Controller",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artemiy Alexeew",
+            "email": "tria-aa@mail.ru",
+            "homepage": "http://pihpi.ru",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    }
+}
