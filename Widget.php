@@ -52,11 +52,11 @@ class Widget extends YiiWidget
     public function registerAssets() {
         $viewPath = $this->getViewPath();
         if (file_exists($viewPath . 'script.js')) {
-            $arr = Yii::$app->assetManager->publish($this->getViewPath() . 'script.js');
+            $arr = Yii::$app->assetManager->publish($viewPath . 'script.js');
             $this->view->registerJsFile($arr[1]);
         }
         if (file_exists($viewPath . 'style.css')) {
-            $arr = Yii::$app->assetManager->publish($this->getViewPath() . 'style.css');
+            $arr = Yii::$app->assetManager->publish($viewPath . 'style.css');
             $this->view->registerCssFile($arr[1]);
         }
     }
