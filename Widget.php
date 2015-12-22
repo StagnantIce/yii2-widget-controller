@@ -49,12 +49,25 @@ class Widget extends YiiWidget
         return $this->findViewPath();
     }
 
+    public function registerAssets() {
+        $viewPath = $this->getViewPath();
+        if (file_exists($viewPath . 'script.js')) {
+            $arr = Yii::$app->assetManager->publish($this->getViewPath() . 'script.js');
+            $this->view->registerJsFile($arr[1]);
+        }
+        if (file_exists($viewPath . 'style.css')) {
+            $arr = Yii::$app->assetManager->publish($this->getViewPath() . 'style.css');
+            $this->view->registerCssFile($arr[1]);
+        }
+    }
+    
     public function init()
     {
         parent::init();
         $class = explode('\\', static::className());
         $this->path = implode('.', $class));
         $this->shortPath = strtolower(end($class));
+        $this->registerAssets();
         $this->getParams = Yii::$app->request->get($this->id, []);
     }
 
